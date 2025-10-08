@@ -2,8 +2,7 @@ array = []
 
 def txtexport():
     with open("heapsortarray.txt", "w") as f:
-        for item in array:
-            f.write("%s\n" % item)
+        f.write("Array: " + str(array) + "\n")
 
 while True:
     print (array)
