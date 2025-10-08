@@ -25,3 +25,4 @@ while True:
             array.append(int(arraynumber))
         except ValueError:
             print("Please enter a valid integer, 'stop' to finish or 'remove ...' to remove a number.")
+            #test
