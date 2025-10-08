@@ -7,8 +7,10 @@ def txtexport():
 while True:
     print (array)
     arraynumber = input("add elements to the array and press enter to continue: ")
-    if arraynumber == "stop": 
+    if arraynumber == "": 
         txtexport()
+        break
+    elif arraynumber == "stop":
         break
     elif arraynumber.startswith ("remove "):
         try:
@@ -25,4 +27,3 @@ while True:
             array.append(int(arraynumber))
         except ValueError:
             print("Please enter a valid integer, 'stop' to finish or 'remove ...' to remove a number.")
-            #test
