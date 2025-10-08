@@ -1,9 +1,15 @@
 array = []
 
+def txtexport():
+    with open("heapsortarray.txt", "w") as f:
+        for item in array:
+            f.write("%s\n" % item)
+
 while True:
     print (array)
     arraynumber = input("add elements to the array and press enter to continue: ")
     if arraynumber == "stop": 
+        txtexport()
         break
     elif arraynumber.startswith ("remove "):
         try:
