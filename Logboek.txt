@@ -1,0 +1,4 @@
+| Datum      | Tijd (min/uur) | Namen                   | Activiteit / Beschrijving                                                                                       | Opmerkingen |
+| ---------- | -------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------- | ----------- |
+| 07-10-2025 | 30 min         | Selton                  | Informatie gezocht over heap sorting en een array-functie gemaakt.                                              | —           |
+| 08-10-2025 | 1 uur          | Selton, Yannis, Maurits | Git geïnstalleerd op alle laptops en een repository aangemaakt. Exportfunctie naar een .txt-bestand toegevoegd. | —           |
