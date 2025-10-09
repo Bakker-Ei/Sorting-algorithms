@@ -1,3 +1,5 @@
+import time
+
 array = []
 
 def txtexport():
@@ -27,3 +29,5 @@ while True:
             array.append(int(arraynumber))
         except ValueError:
             print("Please enter a valid integer, 'stop' to finish or 'remove ...' to remove a number.")
+time.sleep(1)
+print("Array saved to heapsortarray.txt")
