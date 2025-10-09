@@ -6,7 +6,7 @@ def txtexport():
 
 while True:
     print (array)
-    arraynumber = input("add elements to the array and press enter to continue: ")
+    arraynumber = input("add elements to the array and press enter to continue, press enter twice to save the array: ")
     if arraynumber == "":
         txtexport()
         break
