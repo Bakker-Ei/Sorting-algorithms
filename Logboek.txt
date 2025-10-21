@@ -3,3 +3,6 @@
 | 07-10-2025 | 30 min         | Selton                  | Informatie gezocht over heap sorting en een array-functie gemaakt.                                              | —           |
 | 08-10-2025 | 1 uur          | Selton, Yannis, Maurits | Git geïnstalleerd op alle laptops en een repository aangemaakt. Exportfunctie naar een .txt-bestand toegevoegd. | —           |
 | 09-10-2025 | 15 min         | Selton                  | Begin gemaakt aan de pseudocode.                                                                                | —           |
+| 09-10-2025 | 5 min          | Yannis                  | `.gitignore` toegevoegd aan de repository.                                                                      | —           |
+| 21-10-2025 | 45 min         | Selton, Yannis, Maurits | Pseudocode afgemaakt en Pythoncode geschreven.                                                                  | —           |
+| 21-10-2025 | 45 min         | Selton, Yannis          | README gemaakt, code verbeterd en begonnen aan de sprint-code.                                                  | —           |
