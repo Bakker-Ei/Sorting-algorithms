@@ -3,7 +3,6 @@ import os
 
 array = []
 
-# new: log file and helpers
 LOG_FILE = "heapsortarray.txt"
 
 def clear_log():
@@ -67,7 +66,6 @@ def print_tree(arr, highlights=None, msg=None, pause=0.6):
     level = 0
     i = 0
 
-    # Build tree string so it can be logged as well as printed
     tree_lines = []
     if msg:
         tree_lines.append(msg)
@@ -79,7 +77,6 @@ def print_tree(arr, highlights=None, msg=None, pause=0.6):
             if idx < n:
                 val = str(arr[idx])
                 if idx in highlights:
-                    # highlighted nodes are surrounded by * for visibility
                     line_elems.append(f"*{idx}:{val}*")
                 else:
                     line_elems.append(f"{idx}:{val}")
@@ -90,9 +87,8 @@ def print_tree(arr, highlights=None, msg=None, pause=0.6):
         tree_lines.append(line)
         i += level_count
         level += 1
-    print()  # blank line for readability
+    print()
 
-    # append the drawn tree + a separator to the log file
     append_log("\n".join(tree_lines))
     append_log("-" * 40)
 
@@ -100,7 +96,6 @@ def print_tree(arr, highlights=None, msg=None, pause=0.6):
 
 def min_heapify(n, i):
     """Deze functie sorteert dingen met een min-heap"""
-    # show entry and involved indices
     left = 2 * i + 1
     right = 2 * i + 2
     print_tree(array, highlights=(i, left, right), msg=f"min_heapify start: i={i}")
@@ -114,13 +109,11 @@ def min_heapify(n, i):
 
     if largest != i:
         array[i], array[largest] = array[largest], array[i]
-        # show swap
         print_tree(array, highlights=(i, largest), msg=f"swapped i={i} and largest={largest}")
         min_heapify(n, largest)
 
 def max_heapify(n, i):
     """Deze functie sorteert dingen met een max-heap"""
-    # show entry and involved indices
     left = 2 * i + 1
     right = 2 * i + 2
     print_tree(array, highlights=(i, left, right), msg=f"max_heapify start: i={i}")
@@ -134,7 +127,6 @@ def max_heapify(n, i):
 
     if smallest != i:
         array[i], array[smallest] = array[smallest], array[i]
-        # show swap
         print_tree(array, highlights=(i, smallest), msg=f"swapped i={i} and smallest={smallest}")
         max_heapify(n, smallest)
 
