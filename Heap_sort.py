@@ -68,33 +68,34 @@ def max_heapify(n, i):
         max_heapify(n, smallest)
 
 # hier worden alle functies geroepen. 
-while True:
+while True: 
     arrayinput()
     n = len(array)
-    while True: 
-        min_max = input("van klein naar groot sorteren, druk op enter om te beginnen, anders typ 'groot naar klein' voor andersom: ").lower()
-        if min_max == "klein naar groot":
-            for i in range(n // 2 - 1, -1, -1):
-                min_heapify(n, i)
+    min_max = input("van klein naar groot sorteren, druk op enter om te beginnen, anders typ 'groot naar klein' voor andersom: ").lower()
+    if min_max == "klein naar groot":
+        for i in range(n // 2 - 1, -1, -1):
+            min_heapify(n, i)
 
-            for i in range(n - 1, 0, -1):
-                array[i], array[0] = array[0], array[i]
-                min_heapify(i, 0)
+        for i in range(n - 1, 0, -1):
+            array[i], array[0] = array[0], array[i]
+            min_heapify(i, 0)
+
+        print("Sorted array is:", array)
+        time.sleep(2)
+        break
+
+    elif min_max == "groot naar klein":
+        for i in range(n // 2 - 1, -1, -1):
+            max_heapify(n, i)
+
+        for i in range(n - 1, 0, -1):
+            array[i], array[0] = array[0], array[i]
+            max_heapify(i, 0)
 
             print("Sorted array is:", array)
             time.sleep(2)
             break
-
-        elif min_max == "groot naar klein":
-            for i in range(n // 2 - 1, -1, -1):
-                max_heapify(n, i)
-
-            for i in range(n - 1, 0, -1):
-                array[i], array[0] = array[0], array[i]
-                max_heapify(i, 0)
-
-            print("Sorted array is:", array)
-            time.sleep(2)
-            break
-        else:
-            print("dit is geen geldige input\n")
+    else:
+        print("dit is geen geldige input\n")
+        
+    break
