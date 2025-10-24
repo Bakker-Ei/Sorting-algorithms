@@ -82,7 +82,7 @@ while True:
                 array[i], array[0] = array[0], array[i]
                 min_heapify(i, 0)
 
-            print("Sorted array is:", array)
+            print("\nSorted array is:", array, "\n")
             sys.exit()  # stopt de hele code
 
         elif min_max == ">":
@@ -93,7 +93,7 @@ while True:
                 array[i], array[0] = array[0], array[i]
                 max_heapify(i, 0)
 
-            print("Sorted array is:", array)
+            print("\nSorted array is:", array, "\n")
             sys.exit()  # stopt de hele code
         else:
-            print("dit is geen geldige input\n")
+            print("\ndit is geen geldige input\n")
