@@ -6,3 +6,5 @@
 | 09-10-2025 | 5 min          | Yannis                  | `.gitignore` toegevoegd aan de repository.                                                                      | —           |
 | 21-10-2025 | 45 min         | Selton, Yannis, Maurits | Pseudocode afgemaakt en Pythoncode geschreven.                                                                  | —           |
 | 21-10-2025 | 45 min         | Selton, Yannis          | README gemaakt, code verbeterd en begonnen aan de sprint-code.                                                  | —           |
+
+Even een testje om op 2 branches te pushen
