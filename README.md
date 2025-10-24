@@ -7,7 +7,7 @@ Wij hebben 2 verschillende scripts gemaakt, eentje om allemaal verschillende din
 Lees het volledige logboek [hier](./Logboek.txt).
 
 ## De twee branches
-Er zijn twee branches in deze repository, eentje om te visualiseren, eentje oom snel te zijn
+Er zijn twee branches in deze repository, eentje om te visualiseren, eentje oom snel te zijn.
 
 ### [Snelle_Sort] (https://github.com/Bakker-Ei/Sorting-algorithms/tree/Geen-Visualizer)
 
