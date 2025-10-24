@@ -74,7 +74,7 @@ while True:
     n = len(array)
     while True:
         min_max = input("Typ < voor van klein naar groot, en > voor groot naar klein:  ")
-        if min_max == ">":
+        if min_max == "<":
             for i in range(n // 2 - 1, -1, -1):
                 min_heapify(n, i)
 
@@ -85,7 +85,7 @@ while True:
             print("Sorted array is:", array)
             sys.exit()  # stopt de hele code
 
-        elif min_max == "<":
+        elif min_max == ">":
             for i in range(n // 2 - 1, -1, -1):
                 max_heapify(n, i)
 
