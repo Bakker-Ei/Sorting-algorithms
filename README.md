@@ -6,6 +6,9 @@ Wij hebben 2 verschillende scripts gemaakt, eentje om allemaal verschillende din
 ## Logboek
 Lees het volledige logboek [hier](./Logboek.txt).
 
-### De twee bestanden
-[Uitgebreide_sort](./Heap_sort.py)
-[Snelle_sort](./Heap_sprint.py)
+## De twee branches
+Er zijn twee branches in deze repository, eentje om te visualiseren, eentje oom snel te zijn
+
+### [Snelle_Sort] (https://github.com/Bakker-Ei/Sorting-algorithms/tree/Geen-Visualizer)
+
+### [Visualisatie] (https://github.com/Bakker-Ei/Sorting-algorithms/tree/main)
