@@ -1,22 +1,34 @@
+import sys
 array = [6, 7, 4, 1]
 n= len(array)
 i= 0
-while True:
-    def max_heapify(n, i):
-        """Deze functie sorteert dingen met een max-heap"""
-        left = 2 * i + 1
-        right = 2 * i + 2
-        smallest = i
 
-        if left < n and array[left] < array[smallest]:
-            smallest = left
+def min_heapify(n, i):
+    """Deze functie sorteert dingen met een min-heap"""
+    largest = i
+    left = 2 * i + 1
+    right = 2 * i + 2
 
-        if right < n and array[right] < array[smallest]:
-            smallest = right
+    if left < n and array[left] > array[largest]:
+        largest = left
 
-        if smallest != i:
-            array[i], array[smallest] = array[smallest], array[i]
-            max_heapify(n, smallest)
+    if right < n and array[right] > array[largest]:
+        largest = right
 
-max_heapify(n, i)
-print(array)
+    if largest != i:
+        array[i], array[largest] = array[largest], array[i]
+        min_heapify(n, largest)
+
+
+while True: 
+    n = len(array)
+    while True:
+        for i in range(n // 2 - 1, -1, -1):
+            min_heapify(n, i)
+
+        for i in range(n - 1, 0, -1):
+            array[i], array[0] = array[0], array[i]
+            min_heapify(i, 0)
+
+        print("\nSorted array is:", array, "\n")
+        sys.exit()  # stopt de hele code
