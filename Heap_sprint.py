@@ -1,5 +1,11 @@
 import sys
-array = [6, 7, 4, 1]
+import random
+
+# Genereer X unieke getallen in willekeurige volgorde
+cijfers = list(range(1, 10_00001))
+random.shuffle(cijfers)
+
+array = (cijfers)
 n= len(array)
 i= 0
 
