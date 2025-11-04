@@ -13,8 +13,8 @@ except ImportError:
     exit()
 
 #doe het 2e cijfer een **hoger** dan wat je echt wil
-array = list(range(1, 20))
-random.shuffle(array)
+array = list(range(1, 16))
+
 
 LOG_FILE = "heapsortarray.txt"
 
