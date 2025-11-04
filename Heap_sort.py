@@ -1,6 +1,7 @@
 import time
 import os
 import sys 
+import random
 # Visualisatie imports
 try:
     import networkx as nx
@@ -11,55 +12,15 @@ except ImportError:
     print("Installeer met: pip install matplotlib networkx")
     exit()
 
-array = []
+#doe het 2e cijfer een **hoger** dan wat je echt wil
+array = list(range(1, 20))
+random.shuffle(array)
+
 LOG_FILE = "heapsortarray.txt"
 
 # Momentopnames voor grafische visualisatie
 momentopnames = []
-
-def wis_log():
-    """Start met een lege log file."""
-    with open(LOG_FILE, "w", encoding="utf-8") as f:
-        f.write("Heapsort stappen log\n\n")
-
-def voeg_log_toe(tekst):
-    """Voeg tekst toe aan de log file."""
-    with open(LOG_FILE, "a", encoding="utf-8") as f:
-        f.write(tekst + "\n")
-
-def txt_export():
-    """Deze functie export txt wanneer je hem roept"""
-    wis_log()
-    voeg_log_toe("Initiële array: " + str(array))
-
-def array_invoer():
-    """Deze functie vraagt wat de array moet zijn"""
-    while True:
-        print(array)
-        array_getal = input("voeg elementen toe aan de array en druk op enter om door te gaan, druk twee keer op enter om de array op te slaan: ")
-        if array_getal == "":
-            txt_export()
-            break
-        elif array_getal == "stop":
-            break
-        elif array_getal.startswith("remove "):
-            try:
-                num_te_verwijderen = int(array_getal[len("remove "):])
-                if num_te_verwijderen in array:
-                    array.remove(num_te_verwijderen)
-                else:
-                    print(f"{num_te_verwijderen} zit niet in de array.")
-            except ValueError:
-                print("Voer een geldig getal in om te verwijderen.")
-        else:
-            try:
-                int(array_getal)
-                array.append(int(array_getal))
-            except ValueError:
-                print("Voer een geldig getal in, 'stop' om te stoppen of 'remove ...' om een getal te verwijderen.")
-    time.sleep(1)
-    print("Array opgeslagen in heapsortarray.txt")
-
+# Functie om stappen te loggen
 def registreer(arr, heap_grootte, actief=None):
     """Sla een kopie op van de huidige toestand voor animatie."""
     momentopnames.append({
@@ -67,21 +28,21 @@ def registreer(arr, heap_grootte, actief=None):
         'heap_grootte': heap_grootte,
         'actief': actief
     })
-
+# Min-heapify functie
 def min_heapify(n, i):
     links = 2 * i + 1
     rechts = 2 * i + 2
 
-    if links >= n and rechts >= n:
+    if links >= n and rechts >= n: # beide kinderen buiten bereik
         return
 
-    if links < n and rechts < n:
+    if links < n and rechts < n: #  links < n and rechts < n
         registreer(array, n, actief=(links, rechts))
         gekozen = links if array[links] > array[rechts] else rechts
-    elif links < n:
+    elif links < n: # links < n
         registreer(array, n, actief=(links,))
         gekozen = links
-    else:
+    else: # rechts < n
         registreer(array, n, actief=(rechts,))
         gekozen = rechts
 
@@ -90,26 +51,26 @@ def min_heapify(n, i):
         array[i], array[gekozen] = array[gekozen], array[i]
         registreer(array, n, actief=(i, gekozen))
         min_heapify(n, gekozen)
-
+# Max-heapify functie
 def max_heapify(n, i):
     links = 2 * i + 1
     rechts = 2 * i + 2
 
-    if links >= n and rechts >= n:
+    if links >= n and rechts >= n: # beide kinderen buiten bereik
         return
 
-    if links < n and rechts < n:
+    if links < n and rechts < n: # links < n and rechts < n
         registreer(array, n, actief=(links, rechts))
         gekozen = links if array[links] < array[rechts] else rechts
-    elif links < n:
+    elif links < n: # links < n
         registreer(array, n, actief=(links,))
         gekozen = links
-    else:
+    else: # rechts < n
         registreer(array, n, actief=(rechts,))
         gekozen = rechts
 
     registreer(array, n, actief=(i, gekozen))
-    if array[gekozen] < array[i]:
+    if array[gekozen] < array[i]: #wijziging hier voor max-heap
         array[i], array[gekozen] = array[gekozen], array[i]
         registreer(array, n, actief=(i, gekozen))
         max_heapify(n, gekozen)
@@ -134,7 +95,7 @@ def bereken_posities(n):
         
         index += aantal_op_niveau
         niveau += 1
-    
+    # Geef de berekende posities terug
     return posities
 
 def maak_grafische_visualisatie():
@@ -146,18 +107,18 @@ def maak_grafische_visualisatie():
     
     n = len(array)
     
-    # Maak een graaf (netwerk van nodes en verbindingen)
-    graaf = nx.Graph()
-    graaf.add_nodes_from(range(n))  # Voeg alle nodes toe (0 tot n-1)
+    # Maak een graph (netwerk van nodes en verbindingen)
+    graph = nx.Graph()
+    graph.add_nodes_from(range(n))  # Voeg alle nodes toe (0 tot n-1)
     
     # Voeg verbindingen toe tussen ouders en kinderen
     for i in range(n):
         linkerkind = 2 * i + 1
         rechterkind = 2 * i + 2
         if linkerkind < n:
-            graaf.add_edge(i, linkerkind)
+            graph.add_edge(i, linkerkind)
         if rechterkind < n:
-            graaf.add_edge(i, rechterkind)
+            graph.add_edge(i, rechterkind)
     
     # Bereken waar elke node moet staan in de visualisatie
     posities = bereken_posities(n)
@@ -169,7 +130,7 @@ def maak_grafische_visualisatie():
     def teken_frame(frame_nummer):
         """Teken één frame van de animatie."""
         tekengebied.clear()
-        
+        # Haal de snapshot op voor dit frame
         snapshot = momentopnames[frame_nummer]
         waardes = snapshot['array']
         actieve_nodes = snapshot.get('actief', None)
@@ -197,91 +158,94 @@ def maak_grafische_visualisatie():
                 node_kleuren.append('skyblue')
         
         # Teken de verbindingen tussen nodes
-        nx.draw_networkx_edges(graaf, pos=posities, ax=tekengebied, width=2)
+        nx.draw_networkx_edges(graph, pos=posities, ax=tekengebied, width=2)
         
         # Teken de nodes zelf
-        nx.draw_networkx_nodes(graaf, pos=posities, ax=tekengebied, 
+        nx.draw_networkx_nodes(graph, pos=posities, ax=tekengebied, 
         node_size=node_groottes, 
         node_color=node_kleuren,
         linewidths=2)
         
         # Teken de waardes in de nodes
         labels = {i: str(waardes[i]) for i in range(n)}
-        nx.draw_networkx_labels(graaf, pos=posities, labels=labels, 
+        nx.draw_networkx_labels(graph, pos=posities, labels=labels, 
         font_size=12, font_weight='bold')
         
     # Maak de animatie
     print("Bezig met animeren...")
-    animatie = animation.FuncAnimation(figuur, teken_frame, 
+    animatie = animation.FuncAnimation(figuur, teken_frame,
     frames=len(momentopnames), 
-    interval=600,  # 600ms per frame
     repeat=False)
-    
+    #functie die snelheid baseert op array lengt, in mm/frame
+    if len(array) < 17:
+        interval=400, 
+    else: 
+        interval=150, 
     # Toon de animatie direct in een venster
     print("Animatie wordt getoond...")
     print("Sluit het venster om door te gaan.")
     plt.show()
-    
+    # Eindbericht
     print("Animatie voltooid!\n")
     sys.exit()
 
 # Hoofdlus - hier worden alle functies aangeroepen
 while True:
-    array_invoer()
+    # Bepaal de lengte van de array
     n = len(array)
-    
+    # Controleer of de array leeg is
     if n == 0:
         print("Array is leeg, voeg eerst elementen toe.")
         continue
-    
+    # Maak het logbestand leeg
     momentopnames.clear()
-    
+    # Vraag de gebruiker om de sorteervolgorde
     min_max = input("Typ < om van klein naar groot te sorteren, en > om van groot naar klein te sorteren: ")
-    
+    # Voer de juiste heapsort uit op basis van de keuze
     if min_max == "<":
-        wis_log()
-        voeg_log_toe("Start min-heap sort")
-        voeg_log_toe("Initiële array: " + str(array))
-        
+        ()
+        ("Start min-heap sort")
+        ("Initiële array: " + str(array))
+        # Bouw de min-heap
         registreer(array, n)
         
         for i in range(n // 2 - 1, -1, -1):
             min_heapify(n, i)
-        
+        # Registreer de bouw van de heap
         registreer(array, n)
-        
+        # Sorteer de array
         for i in range(n - 1, 0, -1):
             array[i], array[0] = array[0], array[i]
             registreer(array, i, actief=(0, i))
             min_heapify(i, 0)
-        
+        # Registreer de voltooiing van de sortering
         registreer(array, 0)
-        
-        voeg_log_toe("Gesorteerde array is: " + str(array))
+        # Toon het resultaat
+        ("Gesorteerde array is: " + str(array))
         print("Gesorteerde array is:", array)
         
         maak_grafische_visualisatie()
-        
+    # Max-heap sort
     elif min_max == ">":
-        wis_log()
-        voeg_log_toe("Start max-heap sort")
-        voeg_log_toe("Initiële array: " + str(array))
-        
+        ()
+        ("Start max-heap sort")
+        ("Initiële array: " + str(array))
+        # Bouw de max-heap
         registreer(array, n)
         
         for i in range(n // 2 - 1, -1, -1):
             max_heapify(n, i)
-        
+        # Registreer de bouw van de heap
         registreer(array, n)
-        
+        # Sorteer de array
         for i in range(n - 1, 0, -1):
             array[i], array[0] = array[0], array[i]
             registreer(array, i, actief=(0, i))
             max_heapify(i, 0)
-        
+        # Registreer de voltooiing van de sortering
         registreer(array, 0)
-        
-        voeg_log_toe("Gesorteerde array is: " + str(array))
+        # Toon het resultaat
+        ("Gesorteerde array is: " + str(array))
         print("Gesorteerde array is:", array)
         
         maak_grafische_visualisatie()
