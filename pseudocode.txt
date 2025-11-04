@@ -1,0 +1,30 @@
+heap sort
+
+input: array a
+output: array a (sorted)
+
+1. vraag user om een aantal getallen en zet die in een array (array a)
+    1.1 vraag naar getal
+    1.2 kijk of de input een intiger is of een ander commando
+    1.3 als het een ander commando is, voer het uit
+    1.4 zet getal in array
+    1.5 ga terug naar stap 1.1, bahalve wanneer de input 'stop' of "enter" is. in dat geval is stap 1 klaar
+
+2. sort de array met behulp van een binary tree
+    2.1 begint onderin de tree
+    2.2 vergelijkt de twee onderste waardes met elkaar
+    2.3 vergelijkt de hoogste met de parent van die 2 waarden
+    2.4 als de parent kleiner is wisselt hij die om, anders niks
+    2.5 ga terug naar 2.1
+    2.6 als niks aangepast wordt, stop.
+
+3. print/export de binary tree stappen
+    3.1 maak een binary tree aan met de array in de startvolgorde
+        3.1.1 print dit in een txt bestnd
+    3.2 kijk of er iets aanpast in de binary tree nadat hij 2 een keer gedaan heeft
+        3.2.1 print de nieuwe binary tree in de txt (op arrayvolgorde)
+    3.3 kijk of 2 herhaalt, zo ja ga terug naar 3.2
+
+4. print/export de gesorteede array naar een .txt bestand en print in console
+    4.1 print de gesorteerde array in console
+    4.2 export de array naar het .txt

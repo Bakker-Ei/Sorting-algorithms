@@ -1,4 +1,4 @@
-# Logboek Informatica – Selton Hoeijmans
+# Logboek Informatica Heap sort
 
 | Datum | Tijd (min/uur) | Namen | Activiteit / Beschrijving |
 |--------|----------------|--------|---------------------------|
