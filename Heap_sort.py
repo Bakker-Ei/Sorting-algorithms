@@ -13,8 +13,8 @@ except ImportError:
     exit()
 
 #doe het 2e cijfer een **hoger** dan wat je echt wil
-array = list(range(1, 16))
-
+array = list(range(1, 16))  # Pas hier de lengte van de array aan
+random.shuffle(array)
 
 LOG_FILE = "heapsortarray.txt"
 
@@ -196,7 +196,7 @@ while True:
     # Controleer of de array leeg is
     if n == 0:
         print("Array is leeg, voeg eerst elementen toe.")
-        continue
+        break
     # Maak het logbestand leeg
     momentopnames.clear()
     # Vraag de gebruiker om de sorteervolgorde
