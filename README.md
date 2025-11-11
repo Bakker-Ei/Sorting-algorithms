@@ -8,7 +8,7 @@ Wij hebben 3 verschillende scripts gemaakt, eentje om allemaal verschillende din
 Er zijn drie branches in deze repository, eentje om te visualiseren, eentje om snel te zijn, en de laatste om interactief te zijn
 
 
-([Snelle sort](https://github.com/Bakker-Ei/Sorting-algorithms/tree/Sprintje))
+[Snelle sort](https://github.com/Bakker-Ei/Sorting-algorithms/tree/Sprintje)
 [Interactive sort](https://github.com/Bakker-Ei/Sorting-algorithms/tree/Geen-Visualizer)
 [Visuele sort](https://github.com/Bakker-Ei/Sorting-algorithms/tree/main)
 
