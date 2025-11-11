@@ -4,10 +4,10 @@ import time
 import matplotlib.pyplot as plt
 
 # Genereer X unieke getallen in willekeurige volgorde
-x_as_punten = list(range(1, 1001))
+x_as_punten = list(range(1, 10001))
 runtime = []
 avarage_runtime = []
-hoevaak = 250
+hoevaak = 100
 
 def min_heapify(array, n, i):
     """Deze functie sorteert dingen met een min-heap"""
@@ -32,11 +32,11 @@ def min_heapify(array, n, i):
 for each in x_as_punten:
     totale_duur = 0
     for i in range(0, hoevaak):
-        cijfers = list(range(1, each + 1))
+        cijfers = list(range(1, each + 1)) 
         random.shuffle(cijfers)
         array = cijfers.copy()
         net = time.perf_counter()
-        #main loop, dit is wat je programma runt en alle features aanroept
+        #main loop, dit is wat het programma runt en alle features aanroept
         n = len(array)
         for i in range(n // 2 - 1, -1, -1): #// voor af te ronden naar beneden als N oneven is, loopt alle parents door van onder naar boven
             min_heapify(array, n, i)
@@ -44,7 +44,7 @@ for each in x_as_punten:
         for i in range(n - 1, 0, -1): # Pluk het grootste element eruit en voer de code opnieuw uit
             array[i], array[0] = array[0], array[i]
             min_heapify(array, i, 0)
-        nu = time.perf_counter()
+        nu = time.perf_counter() # time.perf_counter() ipv time.time() want die is nauwkeuriger volgens chat
         runtime = nu - net
         totale_duur += runtime
     totale_duur = totale_duur / hoevaak
