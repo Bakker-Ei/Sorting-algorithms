@@ -11,7 +11,7 @@ hoevaak = 100
 
 def min_heapify(array, n, i):
     """Deze functie sorteert dingen met een min-heap"""
-    #dit stukje code kijk wat de children zijn met de som, en maakt de parent "largest" {
+    #dit stukje code kijkt wat de children zijn met de som, en maakt de parent "largest" {
     largest = i 
     left = 2 * i + 1
     right = 2 * i + 2

@@ -54,4 +54,5 @@ Heap sort heeft dus een stabiele tijdscomplexiteit, ongeacht de invoer.
 ## Complexiteit - in praktijk
 we hebben met behulp van time.perf_counter gemeten hoe lang het duurde voor ons programma om een reeks getallen te sorteren, door dit heel vaak te herhalen kregen we de volgende grafiek
 ![Onze grafiek](https://github.com/Bakker-Ei/Sorting-algorithms/blob/main/Kloppende%20l-ei-n%20na%20poging%2023%20.png)
+
 hier kunnen we duidelijk een O(n log n) grafiek zien
