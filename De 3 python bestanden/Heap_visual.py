@@ -14,7 +14,7 @@ except ImportError:
 
 #doe het 2e cijfer een **hoger** dan wat je echt wil
 array = list(range(1, 16))  # Pas hier de lengte van de array aan
-random.shuffle(array)
+random.shuffle(array) # Schud de array willekeurig
 
 LOG_FILE = "heapsortarray.txt"
 
@@ -23,19 +23,19 @@ momentopnames = []
 # Functie om stappen te loggen
 def registreer(arr, heap_grootte, actief=None):
     """Sla een kopie op van de huidige toestand voor animatie."""
-    momentopnames.append({
-        'array': arr.copy(),
-        'heap_grootte': heap_grootte,
-        'actief': actief
+    momentopnames.append({ # 'array': [...], 'heap_grootte': int, 'actief': (int, int) }
+        'array': arr.copy(), # huidige array toestand
+        'heap_grootte': heap_grootte, # huidige grootte van de heap
+        'actief': actief # welke indexen zijn actief (vergelijkd, gewisseld)
     })
 # Min-heapify functie
 def min_heapify(n, i):
     links = 2 * i + 1
     rechts = 2 * i + 2
-
+# Controleer of kinderen binnen bereik zijn
     if links >= n and rechts >= n: # beide kinderen buiten bereik
         return
-
+# Bepaal welke van de kinderen groter is
     if links < n and rechts < n: #  links < n and rechts < n
         registreer(array, n, actief=(links, rechts))
         gekozen = links if array[links] > array[rechts] else rechts
@@ -45,13 +45,13 @@ def min_heapify(n, i):
     else: # rechts < n
         registreer(array, n, actief=(rechts,))
         gekozen = rechts
-
+# Vergelijk en wissel indien nodig
     registreer(array, n, actief=(i, gekozen))
     if array[gekozen] > array[i]:
         array[i], array[gekozen] = array[gekozen], array[i]
         registreer(array, n, actief=(i, gekozen))
         min_heapify(n, gekozen)
-# Max-heapify functie
+# Max-heapify functie # voor sorteren van groot naar klein
 def max_heapify(n, i):
     links = 2 * i + 1
     rechts = 2 * i + 2
@@ -68,19 +68,19 @@ def max_heapify(n, i):
     else: # rechts < n
         registreer(array, n, actief=(rechts,))
         gekozen = rechts
-
+# Vergelijk en wissel indien nodig
     registreer(array, n, actief=(i, gekozen))
     if array[gekozen] < array[i]: #wijziging hier voor max-heap
         array[i], array[gekozen] = array[gekozen], array[i]
         registreer(array, n, actief=(i, gekozen))
         max_heapify(n, gekozen)
-
+# Bereken posities voor visualisatie
 def bereken_posities(n):
     """Bereken waar elke node in de boom moet komen."""
     posities = {}
     niveau = 0
     index = 0
-    
+    # Totale niveaus in de boom
     # Ga door elk niveau van de boom
     while index < n:
         aantal_op_niveau = 2 ** niveau  # Niveau 0: 1 node, niveau 1: 2 nodes, niveau 2: 4 nodes, etc.

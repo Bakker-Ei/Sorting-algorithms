@@ -4,10 +4,10 @@ import time
 import matplotlib.pyplot as plt
 
 # Genereer X unieke getallen in willekeurige volgorde
-x_as_punten = list(range(1, 111))
+x_as_punten = list(range(1, 1001))
 runtime = []
 avarage_runtime = []
-hoevaak = 100
+hoevaak = 10
 
 def min_heapify(array, n, i):
     """Deze functie sorteert dingen met een min-heap"""
@@ -20,6 +20,7 @@ def min_heapify(array, n, i):
     # Dit stukje code kijkt of "largest" ook wel de grootste is, door hem te vergelijken met de twee children ervan 
     if left < n and array[left] > array[largest]:
         largest = left
+
 
     if right < n and array[right] > array[largest]:
         largest = right
@@ -53,8 +54,7 @@ for each in x_as_punten:
 plt.plot(x_as_punten, avarage_runtime)
 plt.xlabel('Aantal elementen in array')
 plt.ylabel('Gemiddelde runtime (seconden)')
-plt.title('Gemiddelde runtime van heap sort voor verschillende array groottes')
-plt.grid(True) # Voeg een raster toe voor betere leesbaarheid
-plt.savefig('heap_sort_runtime.png') # Sla de grafiek op als een PNG-bestand
+plt.title('Gemiddelde runtime van heap sort voor verschillende array groottes') 
+plt.grid(True) # Voeg een raster toe aan de grafiek
+plt.savefig('Heap_sort_runtime.png') # Sla de grafiek op als een PNG-bestand
 plt.show()
-
