@@ -51,6 +51,8 @@ Zoals hierboven al benoemd, de volgorde van de lijst maakt niet uit. Zelfs als d
 - Omdat dit n keer gebeurt, krijg je n * log n = O(n log n).
 Heap sort heeft dus een stabiele tijdscomplexiteit, ongeacht de invoer.
 
+in de praktijk klopt dit niet helemaal omdat als de lijst al helemaal gesorteerd is kost het inderdaad nogsteeds even lang om de binaire boom op te stellen, maar het kost iets minder tijd om hem te sorteren
+
 ## Complexiteit - in praktijk
 we hebben met behulp van time.perf_counter gemeten hoe lang het duurde voor ons programma om een reeks getallen te sorteren, door dit heel vaak te herhalen kregen we de volgende grafiek
 
