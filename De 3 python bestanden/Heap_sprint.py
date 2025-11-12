@@ -4,7 +4,7 @@ import time
 import matplotlib.pyplot as plt
 
 # Genereer X unieke getallen in willekeurige volgorde
-x_as_punten = list(range(1, 10001))
+x_as_punten = list(range(1, 111))
 runtime = []
 avarage_runtime = []
 hoevaak = 100
@@ -54,4 +54,7 @@ plt.plot(x_as_punten, avarage_runtime)
 plt.xlabel('Aantal elementen in array')
 plt.ylabel('Gemiddelde runtime (seconden)')
 plt.title('Gemiddelde runtime van heap sort voor verschillende array groottes')
+plt.grid(True) # Voeg een raster toe voor betere leesbaarheid
+plt.savefig('heap_sort_runtime.png') # Sla de grafiek op als een PNG-bestand
 plt.show()
+
