@@ -49,8 +49,7 @@ In tegenstelling tot veel andere algortimen heeft Heap Sort dus een **stabiele t
 ## Snelheidsmetingen
 Toen de visualisatie werkte, konden we [Heap_sprint.py](https://github.com/Bakker-Ei/Sorting-algorithms/blob/main/De%203%20python%20bestanden/Heap_sprint.py) gebruiken om de **complexiteit in de praktijk** te testen. Met behulp van `time.perf_counter` hebben we de sorteertijd gemeten voor verschillende lijsten, telkens met veel herhalingen. De resultaten werden uitgezet in een grafiek met Matplotlib.
 
-De uiteindelijke grafiek toont een duidelijke **O(n log n)**-lijn, wat overeenkomt met de theoretische verwachting.
+De uiteindelijke grafiek toont een duidelijke **O(n log n)**-lijn, wat overeenkomt met de theoretische verwachting. alle snelheidsmetingen zijn uigevoerd op ***Yannis*** zijn laptop, om bij iedere bugfix vergelijkbare resultaten te krijgen
 
 ![Onze grafiek](https://github.com/Bakker-Ei/Sorting-algorithms/blob/main/Kloppende%20l-ei-n%20na%20poging%2023%20.png)
 
-# Reflectie
