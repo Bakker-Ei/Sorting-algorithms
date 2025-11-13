@@ -8,10 +8,10 @@
 | 09-10-2025 | 5 min | Yannis | `.gitignore` toegevoegd. |
 | 21-10-2025 | 45 min | Selton, Yannis, Maurits | Pseudocode afgemaakt en Pythoncode geschreven. |
 | 21-10-2025 | 45 min | Selton, Yannis | README gemaakt, code verbeterd, sprint-code gestart. |
-| 23-10-2025 | 30 min | Selton | Binary tree-visualisatie gemaakt (gedeeltelijk). |
+| 23-10-2025 | 30 min | Selton, Maurits | Binary tree-visualisatie gemaakt (gedeeltelijk). |
 | 24-10-2025 | 45 min | Selton | Sprint-code geprobeerd te verbeteren. Debugging. |
 | 24-10-2025 | 35 min | Yannis | Visualizer-branch en no-visualizer-branch gemaakt + branch-onderzoek. |
-| 24-10-2025 | 1u 15m | Selton, Yannis | Breaks debuggen, input verbeterd, `sys.exit()` workaround, main zonder visualizer bepaald. |
+| 24-10-2025 | 1u 15m | Selton, Yannis, Maurits | Breaks debuggen, input verbeterd, `sys.exit()` workaround, main zonder visualizer bepaald. |
 | 27-10-2025 | 40 min | Yannis | Sprint-branch gemaakt, sprint-code opgebouwd, gedebugd, README’s aangepast (3 branches). |
 | 31-10 t/m 01-11-2025 | 7 uur | Yannis | Matplotlib en NetworkX geleerd om heap sort visueel te maken buiten de terminal. Na lang debuggen (plaatsing en kleuren) werkt de visualisatie volledig. |
 
